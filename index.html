@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GENZ CAFE — уютная кофейня в Алматы | Спешелти-кофе и десерты</title>
+  <meta name="description" content="GENZ CAFE — уютная кофейня в Алматы: спешелти-кофе от 900 ₸, авторские напитки, свежая выпечка и завтраки. Wi‑Fi и розетки у каждого стола, pet‑friendly. Открыто ежедневно 08:00–23:00.">
+  <meta name="keywords" content="кофейня Алматы, кофе Алматы, спешелти кофе, GENZ CAFE, завтраки Алматы, кофейня с Wi-Fi">
+  <meta name="robots" content="index, follow">
+
+  <!-- Превью при отправке ссылки в мессенджерах и соцсетях -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="GENZ CAFE">
+  <meta property="og:title" content="GENZ CAFE — уютная кофейня в Алматы">
+  <meta property="og:description" content="Спешелти-кофе, авторские напитки и десерты. Wi‑Fi, розетки и уютная атмосфера. Ежедневно 08:00–23:00.">
+
+  <!-- Иконка сайта -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0f9b8e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1918" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Применяем тему до отрисовки, чтобы не было мигания
+    (function () {
+      var root = document.documentElement;
+      var saved = localStorage.getItem('theme');
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      root.classList.add('js');
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #f4fbf9;
+      --bg-alt: #e3f4f0;
+      --surface: #ffffff;
+      --text: #12302d;
+      --muted: #4f6f6b;
+      --accent: #0f9b8e;
+      --accent-strong: #0b7a70;
+      --accent-soft: #c9ece6;
+      --on-accent: #ffffff;
+      --warm: #e9b872;
+      --border: #cfe6e1;
+      --error: #d9534f;
+      --shadow: 0 10px 30px -12px rgba(15, 90, 82, .25);
+      --radius: 22px;
+      --ease: cubic-bezier(.22, .8, .24, 1);
+    }
+    [data-theme="dark"] {
+      --bg: #0b1918;
+      --bg-alt: #102423;
+      --surface: #142e2c;
+      --text: #e4f5f2;
+      --muted: #9dbdb8;
+      --accent: #3cc9b8;
+      --accent-strong: #5fe0cf;
+      --accent-soft: #1b4441;
+      --on-accent: #06201d;
+      --warm: #f0c486;
+      --border: #224643;
+      --shadow: 0 10px 30px -12px rgba(0, 0, 0, .6);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      transition: background .4s, color .4s;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Unbounded', 'Manrope', sans-serif; line-height: 1.15; margin: 0; }
+    a { color: inherit; }
+    .container { width: min(1120px, 100% - 40px); margin-inline: auto; }
+    section { padding: 96px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent-strong);
+      margin-bottom: 14px;
+    }
+    .section-title { font-size: clamp(28px, 4.5vw, 44px); margin-bottom: 16px; }
+    .section-lead { color: var(--muted); max-width: 560px; margin: 0 0 48px; }
+
+    /* Иконки */
+    .ic {
+      width: 22px; height: 22px; flex-shrink: 0;
+      fill: none; stroke: currentColor; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .icon-box {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 13px;
+      background: var(--accent-soft); color: var(--accent-strong);
+      display: grid; place-items: center;
+      transition: transform .4s var(--ease), background .3s, color .3s;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 30px;
+      border-radius: 999px;
+      border: 0;
+      font: 700 16px 'Manrope', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .3s var(--ease), box-shadow .3s, background .3s, border-color .3s;
+    }
+    .btn .ic { width: 18px; height: 18px; stroke-width: 2.2; transition: transform .3s var(--ease); }
+    .btn:hover .ic { transform: translateX(4px); }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--accent-strong); }
+    .btn-ghost { background: transparent; color: var(--text); border: 2px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* Шапка */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background .4s, border-color .4s;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+    .logo { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: .02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      position: relative;
+      text-decoration: none; font-weight: 600; font-size: 15px; color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+      background: var(--accent); border-radius: 2px;
+      transform: scaleX(0); transform-origin: right;
+      transition: transform .35s var(--ease);
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .theme-toggle {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: transform .5s var(--ease), background .4s;
+    }
+    .theme-toggle:hover { transform: rotate(25deg); }
+    .theme-toggle .ic { width: 20px; height: 20px; animation: popIn .5s var(--ease); }
+    .icon-sun { display: none; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+    @keyframes popIn { from { opacity: 0; transform: rotate(-90deg) scale(.5); } }
+
+    /* Первый экран */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: calc(100svh - 68px);
+      display: flex; align-items: center;
+      padding: 64px 0;
+    }
+    .hero::before, .hero::after {
+      content: ''; position: absolute; border-radius: 50%; filter: blur(10px); z-index: -1;
+    }
+    .hero::before {
+      width: 620px; height: 620px; right: -160px; top: -140px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+    }
+    .hero::after {
+      width: 380px; height: 380px; left: -120px; bottom: -120px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--warm) 35%, transparent) 0%, transparent 70%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border);
+      font-size: 14px; font-weight: 600; color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .hero-badge .dot::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-out infinite;
+    }
+    @keyframes pulse { to { transform: scale(3); opacity: 0; } }
+    .hero h1 {
+      font-size: clamp(52px, 10vw, 140px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: .95;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 520px; margin: 28px 0 40px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    /* Иллюстрация справа */
+    .hero-visual {
+      position: relative;
+      width: 100%; max-width: 470px;
+      aspect-ratio: 1;
+      justify-self: end;
+    }
+    .hero-ring {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      animation: spin 40s linear infinite;
+    }
+    .hero-ring text {
+      font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 19px;
+      letter-spacing: 4px;
+      fill: var(--accent);
+    }
+    .hero-circle {
+      position: absolute; inset: 15%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent-strong) 70%, #fff 30%) 0%, transparent 55%),
+        var(--accent);
+      box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--accent) 70%, transparent);
+      display: grid; place-items: center;
+    }
+    .hero-circle::before {
+      content: ''; position: absolute; inset: 7%;
+      border-radius: 50%;
+      border: 1.5px dashed color-mix(in srgb, var(--on-accent) 35%, transparent);
+      animation: spin 60s linear infinite reverse;
+    }
+    .hero-cup { width: 62%; color: var(--on-accent); overflow: visible; }
+    .hero-cup .steam {
+      animation: steam 3.2s ease-in-out infinite;
+      opacity: 0;
+    }
+    .hero-cup .steam:nth-of-type(2) { animation-delay: .6s; }
+    .hero-cup .steam:nth-of-type(3) { animation-delay: 1.2s; }
+    @keyframes steam {
+      0%   { opacity: 0; transform: translateY(10px); }
+      40%  { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-16px); }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .float-card {
+      position: absolute;
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 18px 12px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      animation: float 6s ease-in-out infinite;
+      white-space: nowrap;
+    }
+    .float-card b { display: block; font-size: 15px; line-height: 1.25; }
+    .float-card small { color: var(--muted); font-size: 13px; }
+    .float-card .price { color: var(--accent-strong); font-weight: 700; }
+    .float-card.one { top: 8%; left: -4%; }
+    .float-card.two { bottom: 10%; right: -2%; animation-delay: -3s; }
+    .float-card.three { bottom: 2%; left: 6%; padding: 10px 16px; animation-delay: -1.5s; }
+    .float-card.three .ic { color: var(--warm); fill: var(--warm); stroke: var(--warm); width: 18px; height: 18px; }
+    @keyframes float { 50% { transform: translateY(-12px); } }
+
+    /* Анимация появления первого экрана */
+    .hero-in { opacity: 0; animation: fadeUp .9s var(--ease) forwards; animation-delay: var(--d, 0s); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+    .hero-visual.hero-in { animation-name: zoomIn; animation-duration: 1.2s; }
+    @keyframes zoomIn { from { opacity: 0; transform: scale(.85) rotate(-8deg); } to { opacity: 1; transform: none; } }
+
+    /* Появление при прокрутке */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+      transition-delay: var(--d, 0s);
+    }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    /* Меню / услуги */
+    #menu { background: var(--bg-alt); transition: background .4s; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; }
+    .menu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      transition: transform .5s var(--ease), box-shadow .5s, border-color .3s, opacity .8s var(--ease);
+    }
+    .js .menu-card.reveal { transition: opacity .8s var(--ease) var(--d, 0s), transform .8s var(--ease) var(--d, 0s), border-color .3s; }
+    .menu-card:hover { border-color: var(--accent); }
+    .menu-card:hover .icon-box { transform: rotate(-10deg) scale(1.08); background: var(--accent); color: var(--on-accent); }
+    .menu-card h3 { font-size: 20px; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+    .menu-list { list-style: none; margin: 0; padding: 0; }
+    .menu-list li {
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 12px 8px;
+      margin: 0 -8px;
+      border-bottom: 1px dashed var(--border);
+      border-radius: 10px;
+      transition: background .25s;
+    }
+    .menu-list li:hover { background: color-mix(in srgb, var(--accent-soft) 45%, transparent); }
+    .menu-list li:last-child { border-bottom: 0; }
+    .menu-list .name { font-weight: 600; }
+    .menu-list .name small { display: block; font-weight: 400; color: var(--muted); font-size: 14px; }
+    .menu-list .dots { flex: 1; }
+    .menu-list .price { font-weight: 700; color: var(--accent-strong); white-space: nowrap; }
+
+    /* Почему мы */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why-card {
+      position: relative;
+      padding: 40px 32px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .js .why-card.reveal { transition: opacity .8s var(--ease) var(--d, 0s), transform .8s var(--ease) var(--d, 0s); }
+    .js .why-card.reveal.visible:hover, .why-card:hover { transform: translateY(-6px); transition-delay: 0s; }
+    .why-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .why-num {
+      font-family: 'Unbounded', sans-serif; font-weight: 800;
+      font-size: 72px; line-height: 1;
+      color: var(--accent-soft);
+    }
+    .why-card h3 { font-size: 20px; margin-bottom: 12px; }
+    .why-card p { color: var(--muted); margin: 0; }
+    .why-card.featured { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .why-card.featured p { color: color-mix(in srgb, var(--on-accent) 82%, transparent); }
+    .why-card.featured .why-num { color: color-mix(in srgb, var(--on-accent) 22%, transparent); }
+    .why-card.featured .icon-box { background: color-mix(in srgb, var(--on-accent) 18%, transparent); color: var(--on-accent); }
+
+    /* FAQ */
+    #faq { background: var(--bg-alt); transition: background .4s; }
+    .faq-list { max-width: 820px; display: grid; gap: 14px; }
+    .faq-list details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 0 26px;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .faq-list details.is-open { border-color: var(--accent); box-shadow: var(--shadow); }
+    .faq-list summary {
+      list-style: none; cursor: pointer;
+      padding: 22px 0;
+      font-weight: 700; font-size: 18px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      transition: color .2s;
+    }
+    .faq-list summary:hover { color: var(--accent-strong); }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-icon {
+      position: relative; flex-shrink: 0;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--accent-soft);
+      transition: transform .45s var(--ease), background .3s;
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: ''; position: absolute; left: 50%; top: 50%;
+      width: 14px; height: 2px; border-radius: 2px;
+      background: var(--accent-strong);
+      transform: translate(-50%, -50%);
+      transition: background .3s;
+    }
+    .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .faq-list details.is-open .faq-icon { transform: rotate(135deg); background: var(--accent); }
+    .faq-list details.is-open .faq-icon::before,
+    .faq-list details.is-open .faq-icon::after { background: var(--on-accent); }
+    .faq-body { overflow: hidden; }
+    .faq-body p { margin: 0; padding-bottom: 22px; color: var(--muted); }
+
+    /* Контакты */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+    .contact-info { display: grid; gap: 22px; }
+    .contact-item { display: flex; gap: 16px; align-items: center; }
+    .contact-item .icon-box { width: 50px; height: 50px; border-radius: 15px; }
+    .contact-item:hover .icon-box { transform: scale(1.08); background: var(--accent); color: var(--on-accent); }
+    .contact-item b { display: block; font-size: 14px; color: var(--muted); font-weight: 600; }
+    .contact-item a, .contact-item span { font-weight: 700; font-size: 18px; text-decoration: none; }
+    .contact-item a:hover { color: var(--accent); }
+
+    form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+      display: grid; gap: 18px;
+    }
+    form h3 { font-size: 22px; }
+    .field { display: grid; gap: 6px; }
+    .field label { font-weight: 600; font-size: 14px; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font: 500 16px 'Manrope', sans-serif;
+      transition: border-color .25s, box-shadow .25s, background .4s;
+    }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+    .field .error { color: var(--error); font-size: 13px; display: none; }
+    .field.invalid input, .field.invalid textarea { border-color: var(--error); animation: shake .4s; }
+    .field.invalid .error { display: block; }
+    @keyframes shake { 25% { transform: translateX(-6px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-3px); } }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-success {
+      display: none; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px; border-radius: 14px;
+      background: var(--accent-soft); color: var(--text);
+      font-weight: 600; text-align: center;
+    }
+    .form-success .ic { color: var(--accent-strong); stroke-width: 2.4; }
+    .form-success.show { display: flex; animation: fadeUp .5s var(--ease); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: 14px; }
+    footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    /* Адаптив */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .hero-visual { justify-self: center; max-width: 400px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      section { padding: 72px 0; }
+      .menu-card, form { padding: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 56px 0 72px; }
+      .hero-actions .btn { flex: 1 1 100%; }
+      .hero-visual { max-width: 340px; }
+      .float-card { padding: 9px 14px 9px 9px; gap: 10px; border-radius: 14px; }
+      .float-card .icon-box { width: 36px; height: 36px; border-radius: 10px; }
+      .float-card .icon-box .ic { width: 18px; height: 18px; }
+      .float-card b { font-size: 13px; }
+      .float-card small { font-size: 12px; }
+      .float-card.one { left: -2%; }
+      .float-card.two { right: -2%; }
+      .why-num { font-size: 56px; }
+      .faq-list details { padding: 0 18px; }
+      .faq-list summary { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .hero-in, .js .reveal { opacity: 1; transform: none; }
+      .hero-cup .steam { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Набор иконок -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M6 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol>
+    <symbol id="i-cup-soda" viewBox="0 0 24 24"><path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/><path d="M5 8h14"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/><path d="m12 8 1-6h2"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
+    <symbol id="i-bean" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="7" ry="10" transform="rotate(35 12 12)"/><path d="M7.5 18.5c3-2 1.5-5 4.5-7s1.5-5 4.5-7"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2M20 18v2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  </svg>
+
+  <header>
+    <nav class="container nav">
+      <a href="#top" class="logo">GENZ<span>.</span>CAFE</a>
+      <ul class="nav-links">
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#why">Почему мы</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+        <svg class="ic icon-moon"><use href="#i-moon"/></svg>
+        <svg class="ic icon-sun"><use href="#i-sun"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge hero-in"><span class="dot"></span>Алматы · каждый день 08:00–23:00</div>
+          <h1 class="hero-in" style="--d:.1s">GENZ<br><span class="accent">CAFE</span></h1>
+          <p class="hero-in" style="--d:.25s">Уютная кофейня, где варят честный кофе, пекут свежие десерты и всегда рады видеть тебя с ноутбуком, друзьями или просто с хорошим настроением.</p>
+          <div class="hero-actions hero-in" style="--d:.4s">
+            <a href="#contacts" class="btn btn-primary">Забронировать столик <svg class="ic"><use href="#i-arrow"/></svg></a>
+            <a href="#menu" class="btn btn-ghost">Смотреть меню</a>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-in" style="--d:.2s" aria-hidden="true">
+          <svg class="hero-ring" viewBox="0 0 400 400">
+            <defs><path id="ringPath" d="M200,200 m-178,0 a178,178 0 1,1 356,0 a178,178 0 1,1 -356,0"/></defs>
+            <text><textPath href="#ringPath" textLength="1110" lengthAdjust="spacing">GENZ CAFE • COFFEE &amp; VIBES • АЛМАТЫ • С ЛЮБОВЬЮ • </textPath></text>
+          </svg>
+
+          <div class="hero-circle">
+            <svg class="hero-cup" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path class="steam" d="M78 66c-9-10 9-17 0-30"/>
+              <path class="steam" d="M96 62c-9-11 9-19 0-34"/>
+              <path class="steam" d="M114 66c-9-10 9-17 0-30"/>
+              <path d="M48 88h94v22c0 26-20 44-47 44s-47-18-47-44z"/>
+              <path d="M142 98c22 0 22 30 0 30"/>
+              <path d="M30 168h130"/>
+              <path d="M88 108c0-6 7-8 7-2 0-6 7-4 7 2 0 5-7 9-7 9s-7-4-7-9z" stroke-width="3.5"/>
+            </svg>
+          </div>
+
+          <div class="float-card one">
+            <span class="icon-box"><svg class="ic"><use href="#i-sparkles"/></svg></span>
+            <div><b>Бирюзовый латте</b><small>Хит сезона · <span class="price">2 200 ₸</span></small></div>
+          </div>
+          <div class="float-card two">
+            <span class="icon-box"><svg class="ic"><use href="#i-wifi"/></svg></span>
+            <div><b>Wi‑Fi и розетки</b><small>у каждого стола</small></div>
+          </div>
+          <div class="float-card three">
+            <svg class="ic"><use href="#i-heart"/></svg>
+            <div><b>Pet‑friendly</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Меню и цены -->
+    <section id="menu">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Меню и услуги</span>
+          <h2 class="section-title">Что мы готовим</h2>
+          <p class="section-lead">Зерно обжариваем небольшими партиями, молоко можно заменить на растительное без доплаты.</p>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-card reveal">
+            <h3><span class="icon-box"><svg class="ic"><use href="#i-coffee"/></svg></span> Классика</h3>
+            <ul class="menu-list">
+              <li><span class="name">Эспрессо</span><span class="dots"></span><span class="price">900 ₸</span></li>
+              <li><span class="name">Американо</span><span class="dots"></span><span class="price">1 100 ₸</span></li>
+              <li><span class="name">Капучино<small>250 / 350 мл</small></span><span class="dots"></span><span class="price">1 400 / 1 700 ₸</span></li>
+              <li><span class="name">Флэт уайт</span><span class="dots"></span><span class="price">1 600 ₸</span></li>
+              <li><span class="name">Латте<small>350 мл</small></span><span class="dots"></span><span class="price">1 700 ₸</span></li>
+            </ul>
+          </div>
+
+          <div class="menu-card reveal" style="--d:.12s">
+            <h3><span class="icon-box"><svg class="ic"><use href="#i-cup-soda"/></svg></span> Авторские напитки</h3>
+            <ul class="menu-list">
+              <li><span class="name">Бирюзовый латте<small>голубая спирулина, ваниль</small></span><span class="dots"></span><span class="price">2 200 ₸</span></li>
+              <li><span class="name">Раф «Алматинское яблоко»</span><span class="dots"></span><span class="price">2 100 ₸</span></li>
+              <li><span class="name">Матча латте</span><span class="dots"></span><span class="price">2 000 ₸</span></li>
+              <li><span class="name">Колд брю тоник</span><span class="dots"></span><span class="price">1 900 ₸</span></li>
+              <li><span class="name">Какао с маршмеллоу</span><span class="dots"></span><span class="price">1 500 ₸</span></li>
+            </ul>
+          </div>
+
+          <div class="menu-card reveal" style="--d:.24s">
+            <h3><span class="icon-box"><svg class="ic"><use href="#i-utensils"/></svg></span> Еда и услуги</h3>
+            <ul class="menu-list">
+              <li><span class="name">Круассан<small>классический / миндальный</small></span><span class="dots"></span><span class="price">1 000 / 1 400 ₸</span></li>
+              <li><span class="name">Чизкейк Сан-Себастьян</span><span class="dots"></span><span class="price">1 900 ₸</span></li>
+              <li><span class="name">Завтрак дня<small>до 12:00</small></span><span class="dots"></span><span class="price">2 900 ₸</span></li>
+              <li><span class="name">Кофе с собой для офиса<small>от 10 стаканов</small></span><span class="dots"></span><span class="price">от 12 000 ₸</span></li>
+              <li><span class="name">Аренда зала<small>до 25 гостей, в час</small></span><span class="dots"></span><span class="price">15 000 ₸</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему мы -->
+    <section id="why">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Почему мы</span>
+          <h2 class="section-title">Место, куда хочется вернуться</h2>
+          <p class="section-lead">Мы сделали кофейню, в которой сами хотели бы проводить время.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card reveal">
+            <div class="why-top"><div class="why-num">01</div><span class="icon-box"><svg class="ic"><use href="#i-bean"/></svg></span></div>
+            <h3>Спешелти-зерно</h3>
+            <p>Работаем с локальными обжарщиками и меняем сорта каждый сезон. Бариста подскажут, что попробовать.</p>
+          </div>
+          <div class="why-card featured reveal" style="--d:.12s">
+            <div class="why-top"><div class="why-num">02</div><span class="icon-box"><svg class="ic"><use href="#i-sofa"/></svg></span></div>
+            <h3>Уютно и тихо</h3>
+            <p>Мягкий свет, удобные кресла, розетки у каждого стола и быстрый Wi‑Fi — идеально для работы и учёбы.</p>
+          </div>
+          <div class="why-card reveal" style="--d:.24s">
+            <div class="why-top"><div class="why-num">03</div><span class="icon-box"><svg class="ic"><use href="#i-tag"/></svg></span></div>
+            <h3>Честные цены</h3>
+            <p>Скидка 15% для студентов, каждый 7‑й кофе в подарок и растительное молоко без доплаты.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Частые вопросы</span>
+          <h2 class="section-title">Отвечаем заранее</h2>
+          <p class="section-lead">Не нашли ответ? Напишите нам через форму ниже.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>Нужно ли бронировать столик?<span class="faq-icon"></span></summary>
+            <div class="faq-body"><p>В будни днём обычно есть свободные места. Вечером в пятницу и выходные лучше забронировать заранее — через форму или по телефону.</p></div>
+          </details>
+          <details class="reveal" style="--d:.06s">
+            <summary>Есть ли Wi‑Fi и розетки?<span class="faq-icon"></span></summary>
+            <div class="faq-body"><p>Да, бесплатный быстрый Wi‑Fi и розетки у каждого столика. Работайте сколько нужно.</p></div>
+          </details>
+          <details class="reveal" style="--d:.12s">
+            <summary>Можно ли оплатить картой или Kaspi?<span class="faq-icon"></span></summary>
+            <div class="faq-body"><p>Принимаем банковские карты, Kaspi QR, Apple Pay и Google Pay, а также наличные.</p></div>
+          </details>
+          <details class="reveal" style="--d:.18s">
+            <summary>Можно прийти с собакой?<span class="faq-icon"></span></summary>
+            <div class="faq-body"><p>Конечно! Мы pet‑friendly: для четвероногих гостей есть миска с водой и вкусняшки.</p></div>
+          </details>
+          <details class="reveal" style="--d:.24s">
+            <summary>Вы проводите мероприятия?<span class="faq-icon"></span></summary>
+            <div class="faq-body"><p>Да, зал можно арендовать для дня рождения, презентации или встречи до 25 человек. Напишите нам, и мы подберём меню.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Контакты</span>
+          <h2 class="section-title">Ждём в гости</h2>
+          <p class="section-lead">Забронируйте столик или задайте вопрос — ответим в течение 15 минут в рабочее время.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item reveal">
+              <span class="icon-box"><svg class="ic"><use href="#i-map-pin"/></svg></span>
+              <div><b>Адрес</b><span>г. Алматы, ул. Панфилова, 100</span></div>
+            </div>
+            <div class="contact-item reveal" style="--d:.08s">
+              <span class="icon-box"><svg class="ic"><use href="#i-phone"/></svg></span>
+              <div><b>Телефон</b><a href="tel:+77000000000">+7 (700) 000‑00‑00</a></div>
+            </div>
+            <div class="contact-item reveal" style="--d:.16s">
+              <span class="icon-box"><svg class="ic"><use href="#i-instagram"/></svg></span>
+              <div><b>Instagram</b><a href="https://instagram.com/" target="_blank" rel="noopener">@genzcafe.almaty</a></div>
+            </div>
+            <div class="contact-item reveal" style="--d:.24s">
+              <span class="icon-box"><svg class="ic"><use href="#i-clock"/></svg></span>
+              <div><b>Часы работы</b><span>Ежедневно 08:00 – 23:00</span></div>
+            </div>
+          </div>
+
+          <form id="contactForm" class="reveal" style="--d:.1s" novalidate>
+            <h3>Оставить заявку</h3>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+                <span class="error">Пожалуйста, укажите имя</span>
+              </div>
+              <div class="field">
+                <label for="phone">Телефон</label>
+                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___‑__‑__" required>
+                <span class="error">Введите корректный номер</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="topic">Тема</label>
+              <select id="topic" name="topic">
+                <option>Бронь столика</option>
+                <option>Аренда зала</option>
+                <option>Кофе для офиса</option>
+                <option>Другой вопрос</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Сообщение</label>
+              <textarea id="message" name="message" placeholder="Дата, время, количество гостей или ваш вопрос"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить <svg class="ic"><use href="#i-arrow"/></svg></button>
+            <div class="form-success" id="formSuccess" role="status"><svg class="ic"><use href="#i-check"/></svg> Спасибо! Мы скоро свяжемся с вами</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> GENZ CAFE, Алматы</span>
+      <span>Сделано с любовью и кофеином</span>
+    </div>
+  </footer>
+
+  <script>
+    var root = document.documentElement;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Переключение темы
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Появление блоков при прокрутке
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    // Плавное раскрытие FAQ
+    var easing = 'cubic-bezier(.22, .8, .24, 1)';
+    document.querySelectorAll('.faq-list details').forEach(function (item) {
+      var summary = item.querySelector('summary');
+      var body = item.querySelector('.faq-body');
+      var anim = null;
+
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (anim) anim.cancel();
+        var opening = !item.classList.contains('is-open');
+        item.classList.toggle('is-open', opening);
+
+        if (reduceMotion || !body.animate) { item.open = opening; return; }
+
+        var from = body.offsetHeight;
+        if (opening) item.open = true;
+        var to = opening ? body.scrollHeight : 0;
+
+        anim = body.animate(
+          [{ height: from + 'px', opacity: opening ? 0 : 1 }, { height: to + 'px', opacity: opening ? 1 : 0 }],
+          { duration: opening ? 450 : 350, easing: easing }
+        );
+        anim.onfinish = function () {
+          anim = null;
+          if (!opening) item.open = false;
+        };
+      });
+    });
+
+    // Валидация и отправка формы (без сервера — показываем сообщение)
+    var form = document.getElementById('contactForm');
+    var success = document.getElementById('formSuccess');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.elements.name;
+      var phone = form.elements.phone;
+
+      var nameValid = name.value.trim().length >= 2;
+      var digits = phone.value.replace(/\D/g, '');
+      var phoneValid = digits.length >= 10 && digits.length <= 12;
+
+      [[name, nameValid], [phone, phoneValid]].forEach(function (pair) {
+        var field = pair[0].parentElement;
+        field.classList.remove('invalid');
+        void field.offsetWidth; // перезапуск анимации
+        field.classList.toggle('invalid', !pair[1]);
+      });
+
+      if (!nameValid || !phoneValid) { success.classList.remove('show'); return; }
+      form.reset();
+      success.classList.add('show');
+      setTimeout(function () { success.classList.remove('show'); }, 5000);
+    });
+
+    form.querySelectorAll('input').forEach(function (input) {
+      input.addEventListener('input', function () { input.parentElement.classList.remove('invalid'); });
+    });
+  </script>
+</body>
+</html>
